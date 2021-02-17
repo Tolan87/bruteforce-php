@@ -11,9 +11,10 @@ $start = time();
 
 while (strlen($correct_pwd) < 24)
 {
+    $current_position = strlen($correct_pwd);
+    
     for ($i = 0;$i < strlen($characters); $i++)
     {
-        $current_position = strlen($correct_pwd);
         $placeholder_pwd[$current_position] = $characters[$i];
         
         $response = $client->request('POST', '/the-chattering-programmer/login', [
